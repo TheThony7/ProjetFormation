@@ -1,0 +1,28 @@
+<div class="liennav">
+  <ul class="pad2">
+    <li class="">
+      <a class="btn" href={{ asset(path('app_home'))}}>Accueil</a>
+    </li>
+    <li class="">
+      {# {% if app.request.attributes.get('_route') == 'app_home' %}
+        <a class="btn" href={{ asset(path('app_apropos'))}}>A propos de moi</a>
+      {% elseif app.request.attributes.get('_route') == 'app_apropos' %}
+        <a class="btn" href={{ asset(path('app_home'))}}>Accueil</a>
+      {% endif %} #}
+      <a class="btn" href={{ asset(path('app_apropos'))}}>A propos</a>
+    </li>
+    <li class="">
+      <a class="btn" href={{ asset(path('app_projet'))}}>Projets</a>
+    </li>
+    <li class="">
+      {% if app.user %}
+          <a href={{ path ("")}} class="btn btn-success">Mes réservations</a>
+          <a href={{ path ("app_logout")}} class="btn btn-success" onclick="return confirm('Voulez vous vraiment vous déconnecter ?')">Déconnexion</a>
+      {% else %}
+      <a class="btn" href={{ path ("app_register")}}>S'enregistrer</a>
+      {% endif %}
+    </li>
+          
+      
+  </ul>
+</div>

@@ -1,0 +1,131 @@
+.back
+{
+    background: linear-gradient(180deg, #B1B1B1 0%, rgba(255, 253, 253, 0.470486) 50%, #595959 100%) no-repeat;
+}
+
+
+/* ---------------NAVBAR-------------- */
+.pad2
+{
+    padding: 2%;
+}
+
+.liennav
+{
+    color: white;
+    
+}
+
+.liennav ul
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.liennav li a
+{
+    border-radius: 20px;
+    background-color: lightgrey;
+}
+
+.liennav li a:hover
+{
+    background-color: grey;
+}
+
+/* ------------------HEADER----------------------  */
+
+.headerstyle
+{
+    padding: 2%;
+    border-radius: 20px 20px 0 0;
+    background-color: #403F3F;
+}
+
+.sousheaderstyle
+{
+    border-radius: 0 0 20px 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    box-shadow: 3px;
+}
+
+/* .ombreheader
+{
+    box-shadow: 100px 100px 100px solid black;
+} */
+
+/* --------------------HERO------------------  */
+
+.hero
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.photohero
+{
+    border-radius:20px;
+    width: 25%;
+}
+
+
+/* ----------------PAGE A PROPOS-------------- */
+
+.apropos
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.photoapropos
+{
+    border-radius: 40px;
+    width: 85%;
+}
+
+.ulapropos
+{
+    margin-left: 0 !important;
+}
+
+.ul
+{
+    font-size: 50px;
+}
+
+.textapropos
+{
+    color: white;
+    font-size: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+/* ----------------PAGE PROJETS------------- */
+
+
+/* ---------------FOOTER-------------- */
+
+.footer ul
+{
+    list-style-type: none;
+    color: white;
+    background-color: #B1B1B1;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5%;
+    border-radius: 20px 20px 0 0;
+}
+
+

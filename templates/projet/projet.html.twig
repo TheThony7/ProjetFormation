@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projets{% endblock %}
+
+{% block body %}
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .item:nth-child(even) {
+        text-align: right;
+    }
+</style>
+<div class="footer justify-content-center">
+    <h1 style="font-size:10vh; color:white;">Mes dernières réalisations...</h1>
+</div>
+<div class="container">
+    {% for item in projets %}
+        <div class="item">
+            <h5><u>{{ item.nom }}</u></h5>
+            <h6>{{ item.categorie }}</h6>
+            <p>{{ item.description }}</p>
+        </div>
+    {% endfor %}
+</div> 
+
+
+
+
+
+{% endblock %}
