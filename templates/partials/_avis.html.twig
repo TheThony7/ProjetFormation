@@ -1,0 +1,66 @@
+{# <div class="avisutilisateur">
+    <div class="avistexte">
+        <div class="avisimg">
+            <img src={{ asset('assets/media/IMG-20230214-WA0002.jpg') }} alt="portrait"><br>
+            <p> Nom d'utilisateur </p>
+        </div>
+        <p> Etoiles </p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+</div> #}
+
+<style>
+.avisutilisateur
+{
+    display: flex;
+    justify-content: space-around;
+}
+.avis
+{
+    background-color: #403F3F;
+    width: 20%;
+    border-radius:40px 40px 0 0;
+}
+.avisimg
+{
+    text-align: center;
+    background-color: white;
+    border-radius:50px 50px 0 0;
+    margin-left:20%;
+    margin-right:20%;
+    margin-top:10%;
+}
+.avistexte
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right:5%;
+    margin-left:5%;
+}
+.avisetoiles
+{
+    text-align: center;
+}
+
+</style>
+
+
+<div class="avisutilisateur mx-5 mt-5"> 
+    {% for i in 1..4 %}
+            <div class="avis">
+                <div class="avisimg">
+                    <img src={{ asset('assets/media/IMG-20230214-WA0002.jpg') }} alt="portrait" style="width:70%;margin-top:5%; border-radius: 50px"><br>
+                    <p> Nom d'utilisateur </p>
+                </div>
+                <div class="avisetoiles">
+                    <p> <i class="bi bi-star"></i> </p>
+                    <p class="avistexte">
+                        {# {{ texte|slice(0, 20) }}{% if texte|length > 20 %}...{% endif %} #}
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+    {% endfor %}
+</div>

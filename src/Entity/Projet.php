@@ -59,4 +59,36 @@ public function setCategorie(string $categorie): self
     $this->categorie = $categorie;
     return $this;
 }
+
+
+
+
+#[ORM\Column(type:"datetime")]
+private $dateCreation;
+
+
+public function getDateCreation(): ?\DateTimeInterface
+{
+   return $this->dateCreation;
+}
+
+public function setDateCreation(\DateTimeInterface $dateCreation): self
+{
+   $this->dateCreation = $dateCreation;
+
+   return $this;
+}
+
+private $photo;
+
+public function getPhoto()
+{
+    return $this->photo;
+}
+
+public function setPhoto($photo)
+{
+    $this->photo = $photo;
+}
+
 }

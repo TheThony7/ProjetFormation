@@ -5,31 +5,111 @@
 {% block body %}
 
 <style>
-    .container {
+    .container 
+    {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 
-    .item {
-        width: 50%;
-        box-sizing: border-box;
-        padding: 10px;
-    }
-
-    .item:nth-child(even) {
+    .item 
+    {
+        display: flex;
+        flex-direction: row;
         text-align: right;
+        align-items: center;
+    }
+
+    .item:nth-child(even) 
+    {
+        text-align: left;
+        flex-direction: row-reverse;
+    }
+    .photoprojet
+    {
+        display: flex;
+        flex-direction: column;
+        margin-left:2%;
+    }
+    .button
+    {
+        background-color: #403F3F; 
+        color:white;
+        border-radius:20px;
+        width:90%;
+        text-align: center;
+    }
+    .categorie
+    {
+        text-align: center;
+        font-size: 5vh;
+        background-color: #4c4a4a;
+        width:70%;
+        margin-left:15%;
+        margin-top: 5%;
+        padding-bottom: 3%;
+        border-radius:20px;
+        
+    }
+    .icones
+    {
+        background-color: white;
+        width: 120%;
+        margin-left:-10%;
+        border-radius:20px;
     }
 </style>
+
+
 <div class="footer justify-content-center">
     <h1 style="font-size:10vh; color:white;">Mes dernières réalisations...</h1>
 </div>
+
 <div class="container">
-    {% for item in projets %}
+    {% for item in projet3 %}
         <div class="item">
-            <h5><u>{{ item.nom }}</u></h5>
-            <h6>{{ item.categorie }}</h6>
-            <p>{{ item.description }}</p>
+            <div class="projetcard">
+                <h5>
+                    <a href={{ path('show_projet', { id: item.id }) }}><u>{{ item.nom|upper }}</u></a>
+                </h5>
+                <h6>Rangement pour : {{ item.categorie }}</h6>
+                <p>{{ item.description }}</p>
+                {# <p>{{ item.dateCreation|date('Y-m-d') }}</p> #}
+            </div>
+            <div class="photoprojet">
+                <a href={{ path('show_projet', { id: item.id }) }}>
+                    {# <img src={{ asset('images/IMG-20230520-WA0004.jpg') }} alt="" style="width:90%;border-radius:20px;"> #}
+                    {# <img src={{ asset('public/images') ~ item.photo }} alt="" style="width:90%;border-radius:20px;"> #}
+                    <img src={{ asset('images/' ~ item.photo) }} alt="ImageProjet">
+                </a>
+            </div>
+        </div> 
+        
+    {% endfor %}
+        <div class="categorie text-white">
+            Choisissez une catégorie
+            <div class="icones text-dark">
+                icones
+            </div>
         </div>
+    {% for item in projets %}
+    <div class="item">
+            <div class="projetcard">
+                <h5>
+                    <a href={{ path('show_projet', { id: item.id }) }}><u>{{ item.nom|upper }}</u></a>
+                </h5>
+                <h6>Rangement pour : {{ item.categorie }}</h6>
+                <p>{{ item.description }}</p>
+                {# <p>{{ item.dateCreation|date('Y-m-d') }}</p> #}
+            </div>
+            <div class="photoprojet">
+                <a href={{ path('show_projet', { id: item.id }) }}>
+                    {# <img src={{ asset('images/IMG-20230520-WA0004.jpg') }} alt="" style="width:90%;border-radius:20px;"> #}
+                    {# <img src={{ asset('public/images') ~ item.photo }} alt="" style="width:90%;border-radius:20px;"> #}
+                    <img src={{ asset('images/' ~ item.photo) }} alt="ImageProjet">
+                </a>
+            </div>
+        </div> 
     {% endfor %}
 </div> 
 
@@ -37,4 +117,58 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# <div>
+    <div class="bloc1">
+        <div>
+            texte
+        </div>
+        <div>
+            {{ asset('assets/media/IMG-20230214-WA0002.jpg') }}
+        </div>
+    </div>
+
+    <div class="bloc2">
+        <div>
+            texte
+        </div>
+        <div>
+            image
+        </div>
+    </div>
+
+    <div class="bloc3">
+        <div>
+            texte
+        </div>
+        <div>
+            image
+        </div>
+    </div>
+</div>
+<style>
+    .bloc1
+        {
+            display: flex;
+        }
+</style> #}
 {% endblock %}
+
+
+
+
+
+
+

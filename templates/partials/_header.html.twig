@@ -1,35 +1,56 @@
 <div class="ombreheader">
-{% if app.request.attributes.get('_route') == 'app_home' %}
-       {% if app.user %}
-            <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:22vh">
-                <h1 class="display-5 fw-bold" style="color:white">Bienvenue, {{ app.user.email }}!</h1>
-            </div>
-            <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico',cursive;">
-                <h4>Créations manuelles en cartonnage</h4>
-            </div>   
-        {% else %}
-            <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:22vh">
-            <h1>Bienvenue</h1>
-            </div>
-            <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico',cursive;">
-                <h4>Créations manuelles en cartonnage</h4>
-            </div> 
-        {% endif %}
-{% elseif app.request.attributes.get('_route') == 'app_apropos' %}
-    <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:22vh">
-        <h1>A propos de moi...</h1>
-    </div>
-    <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
-        <h4>Présentation</h4>
-    </div> 
-{% elseif app.request.attributes.get('_route') == 'app_projet' %}
-    <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:22vh">
-        <h1>Projets</h1>
-    </div>
-    <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
-        <h4>Je vous présente ici mes projets</h4>
-    </div>    
-{% endif %}
+    {% if app.request.attributes.get('_route') == 'app_home' %}
+        {% if app.user %}
+                <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+                    <p>Bienvenue {{ app.user.prenom }} !</p>
+                </div>
+                <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico',cursive;">
+                    <h4>Créations manuelles en cartonnage</h4>
+                </div>   
+            {% else %}
+                <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+                    <p>Bienvenue</p>
+                </div>
+                <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico',cursive;">
+                    <h4>Créations manuelles en cartonnage</h4>
+                </div> 
+            {% endif %}
+    {% elseif app.request.attributes.get('_route') == 'app_apropos' %}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>A propos de moi...</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Présentation</h4>
+        </div> 
+    {% elseif app.request.attributes.get('_route') == 'app_projet' %}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>Projets</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Je vous présente ici mes projets</h4>
+        </div>   
+    {% elseif app.request.attributes.get('_route') == 'app_mon_espace' %}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>Votre espace</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Vos informations</h4>
+        </div>  
+    {% elseif app.request.attributes.get('_route') == 'app_register' %}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>S'enregistrer</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Renseignez vos informations</h4>
+        </div>   
+    {% elseif app.request.attributes.get('_route') == 'app_login' %}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>Se connecter</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Renseignez vos informations</h4>
+        </div>    
+    {% endif %}
 </div>
 
 

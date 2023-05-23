@@ -14,10 +14,34 @@ class ProjetController extends AbstractController
     {
         return $this->render('projet/projet.html.twig', [
             'controller_name' => 'ProjetController',
-            'projets' => $projets->findBy(
+            'projet3' => $projets->findBy(
                 [],
                 ['id' => 'DESC'],
-                3)
+                3),
+            'projets' => $projets->findAll()
         ]);
     }
+    #[Route('/projet/{id}', name: 'show_projet', methods: ['GET', 'POST'])]
+    public function show($id, ProjetRepository $oneProjet): Response
+    {
+        // Affiche la note demandée dans le template dédié
+        return $this->render('projet/single.html.twig', [
+            // Récupère la note demandée par son id
+            'oneProjet' => $oneProjet->findOneBy(
+                ['id' => $id]
+            ),
+        ]);
+    }
+    
+    #[Route("/image/{id}", name:"image_show")]
+   public function showPhoto($id)
+   {
+       // Récupérer l'entité contenant les informations de l'image à partir de votre base de données
+       $image = $this->getDoctrine()->getRepository(Image::class)->find($id);
+
+       // Passer les informations de l'image à la vue
+       return $this->render('projet/projet.html.twig', [
+           'image' => $image,
+       ]);
+   }
 }
