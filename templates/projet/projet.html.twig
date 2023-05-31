@@ -53,7 +53,7 @@
     }
     .icones
     {
-        background-color: white;
+        background-color: rgb(150, 147, 147);
         width: 120%;
         margin-left:-10%;
         border-radius:20px;
@@ -73,7 +73,7 @@
                     <a href={{ path('show_projet', { id: item.id }) }}><u>{{ item.nom|upper }}</u></a>
                 </h5>
                 <h6>Rangement pour : {{ item.categorie }}</h6>
-                <p>{{ item.description }}</p>
+                <p style="text-align: justify;">{{ item.description }}</p>
                 {# <p>{{ item.dateCreation|date('Y-m-d') }}</p> #}
             </div>
             <div class="photoprojet">
@@ -100,12 +100,10 @@
                 </h5>
                 <h6>Rangement pour : {{ item.categorie }}</h6>
                 <p>{{ item.description }}</p>
-                {# <p>{{ item.dateCreation|date('Y-m-d') }}</p> #}
+                <p>Date de création :{{ item.dateCreation|date('Y-m-d') }}</p>
             </div>
             <div class="photoprojet">
                 <a href={{ path('show_projet', { id: item.id }) }}>
-                    {# <img src={{ asset('images/IMG-20230520-WA0004.jpg') }} alt="" style="width:90%;border-radius:20px;"> #}
-                    {# <img src={{ asset('public/images') ~ item.photo }} alt="" style="width:90%;border-radius:20px;"> #}
                     <img src={{ asset('images/' ~ item.photo) }} alt="ImageProjet">
                 </a>
             </div>
