@@ -1,28 +1,88 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}
 	{{ oneProjet.nom }}
 {% endblock %}
 
 {% block body %}
-	<h1 >{{ oneProjet.nom }}</h1>
-	<p class="fs-4 text-white">{{ oneProjet.description }}</p>
-	
-	
 
-	<hr class="text-white">
+	<style>
+		.presentationprojet
+		{
+			display: flex;
+			flex-direction: row;
+		}
 
-	<div class="row pt-3 pb-3">
-		<div class="card p-4 rounded-3">
-			<p>{{ oneProjet.categorie }}</p>
+		.boutonrevenir
+		{
+			background-color: white;
+			padding : 2%;
+			margin-bottom: 10%;
+		}
+		.photo
+		{
+			border-radius: 10px;
+		}
+		.presentationliste
+		{
+			display: flex;
+			flex-direction: column;
+		}
+		.presentationbouton
+		{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin-bottom: 5%;
+			justify-content: space-around;
+			margin-left:3%;
+		}
+	</style>
+
+	<div class="container">
+		<hr>
+		<h1 class=" titreprojet" >{{ oneProjet.nom }}</h1>
+		<hr>
+		<br>
+		<div class="presentationprojet">
+				<img src={{ asset('assets/images/' ~ oneProjet.photo) }} alt="item"  width="60%" style="border-radius:20px; text-align: center;" index="0">
+				<div class="presentationliste">
+					<p class="fs-4 text-white">
+						<ul>
+							<li>Nom : {{ oneProjet.nom}}</li>
+							<li>Rangement : {{ oneProjet.categorie.name}}</li>
+							<li>Description : {{ oneProjet.description }}</li>
+							<li>Mise en ligne : {{ oneProjet.dateCreation|date('Y-m-d') }}</li>
+						</ul>
+					</p>	
+					<div class="presentationbouton">
+						<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" href={{ asset(path('app_mon_espace'))}}>Commander</a>
+						<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" href={{ asset(path('app_mon_espace'))}}>Laisser un avis</a>
+					</div>
+				</div>
 		</div>
+		<br>
+		<div>
+			<img src={{ asset('assets/images/' ~ oneProjet.photo2) }} alt="item"  width="19.6%" class="photo" index="1">
+			<img src={{ asset('assets/images/' ~ oneProjet.photo3) }} alt="item"  width="19.6%" class="photo" index="2">
+			<img src={{ asset('assets/images/' ~ oneProjet.photo4) }} alt="item"  width="19.6%" class="photo" index="3">
+		</div>
+		<br>
+		<a class="boutonrevenir" href={{ path('app_projet') }}>Revenir à toutes les projets</a>
+
 	</div>
 
-	<hr class="text-white">
 
-	{# <div class="col-md-12 text-center">
-		<a class="btn btn-warning" href={{ path('notes') }}>Revenir à toutes les projets</a>
-		<a class="btn btn-primary" href={{ path('update_note', { id: oneProjet.id} ) }}>Modifier la note</a>
-	</div> #}
+	{% block javascript %}
+		<script>
+			$(document).ready(function() {
+				 $(".photo").on("click", function(){
+				 
+        });
+    });
+	{% endblock %}
+
+
 
 {% endblock %}

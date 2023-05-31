@@ -1,4 +1,25 @@
-<div class="hero mx-5">
-    <img class="photohero" src={{ asset('assets/media/IMG-20230214-WA0002.jpg') }} alt="portrait"><br>
-    <p style="padding:3%; background-color:white; border-radius:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+<style>
+    .hero
+    {
+        display: flex;
+        justify-content: center;
+        margin-top:5%;
+    }
+    .hero img
+    {
+        height: 100%;
+    }
+    .hero p
+    {
+        height: 100%;
+    }
+</style>
+
+
+
+<div class="hero container">
+    <img class="photohero" src={{ asset('assets/images/IMG-20230214-WA0002.jpg') }} alt="portrait"><br>
+    <p style="padding:3%; background-color:white; border-radius:20px; margin-top:1%; margin-left:5%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    <br>
+    <a href={{ asset(path('app_apropos'))}}><u>En savoir plus...</u></a></p>
 </div>

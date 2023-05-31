@@ -3,24 +3,39 @@
 {% block title %}A propos{% endblock %}
 
 {% block body %}
+<style>
+    .apropos
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+    }
+    .photoapropos
+    {
+        border-radius: 40px;
+        width: 100%;
+    }
 
-<div class="apropos">
+</style>
+
+<div class="apropos container">
     <div >
-        <img class="photoapropos" src={{ asset('assets/media/moi.jpg') }} alt="portrait">
+        <img class="photoapropos" src={{ asset('assets/images/IMG-20230214-WA0002.jpg') }}  alt="portrait">
     </div>
     <div class="ulapropos">
         <ul class="ul">
             <li>De Sa</li>
             <li>Christine</li>
-            {% set dateOfBirth = date('1961-10-03') %}
+            {% set dateOfBirth = date('1960-10-03') %}
             {% set currentDate = 'now' %}
             {% set dob = date(dateOfBirth) %}
             {% set now = date(currentDate) %}
             {% set age = dob.diff(now).y %}
             <li>{{ age }} ans</li>
             <li>2 allée des bleuets, Limay, Yvelines</li>
-            <li>06 01 23 54 89</li>
-            <li>christine@cegetel.net</li>
+            <li>06 05 39 85 05</li>
+            <li>de.sa.christine@cegetel.net</li>
         </ul>
     </div>
 </div>

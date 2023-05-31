@@ -49,8 +49,16 @@
         </div>
         <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
             <h4>Renseignez vos informations</h4>
-        </div>    
+        </div>   
+    {% elseif  app.request.attributes.get('_route') == 'app_projetFiltered'%}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>Projets</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Je vous présente ici mes projets</h4>
+        </div>
     {% endif %}
+    
 </div>
 
 
