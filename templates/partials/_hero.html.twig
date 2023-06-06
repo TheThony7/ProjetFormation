@@ -7,7 +7,8 @@
     }
     .hero img
     {
-        height: 100%;
+        width : 30%;
+        border-radius: 20px;
     }
     .hero p
     {
@@ -18,8 +19,8 @@
 
 
 <div class="hero container">
-    <img class="photohero" src={{ asset('assets/images/IMG-20230214-WA0002.jpg') }} alt="portrait"><br>
+    <img class="photohero" src={{ asset('assets/images/IMG-20230214-WA0002.jpg') }} alt="portrait" style="margin-bottom:5%;">
     <p style="padding:3%; background-color:white; border-radius:20px; margin-top:1%; margin-left:5%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    <br>
-    <a href={{ asset(path('app_apropos'))}}><u>En savoir plus...</u></a></p>
+    <br><a href={{ asset(path('app_apropos'))}}><u>En savoir plus...</u></a>
+   </p> 
 </div>

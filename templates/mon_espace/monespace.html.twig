@@ -3,13 +3,16 @@
 {% block title %}MonEspace{% endblock %}
 
 {% block body %}
-<div>
+
+<div class="container">
+    {% if app.user %}
     <ul>
-        <li>
-        <li>
-        <li>
-        <li>
+        <li>Nom : {{ app.user.nom }}</li>
+        <li>Prénom : {{ app.user.prenom }}</li>
+        <li>Email : {{ app.user.email }}</li>
+        <li>Vos Commandes : </li>
     </ul>
+    {% endif %}
 </div>
 
 {% endblock %}

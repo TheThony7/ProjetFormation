@@ -13,16 +13,14 @@
 			display: flex;
 			flex-direction: row;
 		}
-
-		.boutonrevenir
-		{
-			background-color: white;
-			padding : 2%;
-			margin-bottom: 10%;
-		}
 		.photo
 		{
 			border-radius: 10px;
+			transition-duration:1s;
+		}
+		.photo:hover
+		{
+			background-color: white;
 		}
 		.presentationliste
 		{
@@ -38,6 +36,40 @@
 			justify-content: space-around;
 			margin-left:3%;
 		}
+		.photoavis
+		{
+			display: flex;
+			
+		}
+		
+
+		.aur
+		{
+			margin-left:4%;
+			margin-top:5%;
+		}
+
+		.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover::after {
+  opacity: 1;
+}
+
 	</style>
 
 	<div class="container">
@@ -56,32 +88,59 @@
 							<li>Mise en ligne : {{ oneProjet.dateCreation|date('Y-m-d') }}</li>
 						</ul>
 					</p>	
-					<div class="presentationbouton">
-						<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" href={{ asset(path('app_mon_espace'))}}>Commander</a>
-						<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" href={{ asset(path('app_mon_espace'))}}>Laisser un avis</a>
-					</div>
+					{% if app.user %}
+						<div class="presentationbouton">
+							<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" href={{ asset(path('app_contact'))}}>Commander</a>
+							<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" id="avis">Laisser un avis</a>
+						</div>
+					{% endif %}
+					
 				</div>
 		</div>
 		<br>
-		<div>
-			<img src={{ asset('assets/images/' ~ oneProjet.photo2) }} alt="item"  width="19.6%" class="photo" index="1">
-			<img src={{ asset('assets/images/' ~ oneProjet.photo3) }} alt="item"  width="19.6%" class="photo" index="2">
-			<img src={{ asset('assets/images/' ~ oneProjet.photo4) }} alt="item"  width="19.6%" class="photo" index="3">
+		<div class="photoavis">
+			<img src={{ asset('assets/images/' ~ oneProjet.photo) }} alt="item"  width="19.6%" class="photo" index="2" style='margin-right:0.5%;'onclick="replaceImage(this)">
+			<img src={{ asset('assets/images/' ~ oneProjet.photo2) }} alt="item"  width="19.6%" class="photo" index="2" style='margin-right:0.5%;'onclick="replaceImage(this)">
+			<img src={{ asset('assets/images/' ~ oneProjet.photo3) }} alt="item"  width="19.6%" class="photo" index="3" style='margin-right:0.5%;' onclick="replaceImage(this)">
+			<img src={{ asset('assets/images/' ~ oneProjet.photo4) }} alt="item"  width="19.6%" class="photo" index="4"onclick="replaceImage(this)">
+			
+			{% block javascript %}
+				<script>
+					function replaceImage(element) {
+						var index = element.getAttribute("index");
+						var mainImage = document.querySelector(".presentationprojet img");
+						var mainImageSrc = mainImage.getAttribute("src");
+						var clickedImageSrc = element.getAttribute("src");
+
+      					mainImage.setAttribute("src", clickedImageSrc);
+      					element.setAttribute("src", mainImageSrc);
+    				}
+					$(document).ready(function() {
+						$(".aur").hide();
+						$("#avis").on("click",function(){
+							$(".aur").show(1000);
+						});
+						$("#envoyer").on("click",function(){
+							$(".aur").hide(1000);
+						});	
+					});
+				</script>
+			{% endblock %}
 		</div>
+		<hr>
+		<form class="aur">
+			<textarea class="messageavis" id="message" placeholder= "Votre message" rows="5" cols="80" required></textarea>
+			<div style="text-align : right">
+				<a class="btn" style="background-color:rgb(117, 154, 130); color:white;" id="envoyer" onclick="return confirm('Votre avis a bien été envoyé')">Envoyer</a>
+			</div>
+		</form>
 		<br>
-		<a class="boutonrevenir" href={{ path('app_projet') }}>Revenir à toutes les projets</a>
-
+			<a class="btn" href={{ path('app_projet') }} style="background-color:rgb(117, 154, 130); color:white;margin-bottom:2%;">Revenir à tous les projets</a>
 	</div>
+	
 
+		
 
-	{% block javascript %}
-		<script>
-			$(document).ready(function() {
-				 $(".photo").on("click", function(){
-				 
-        });
-    });
-	{% endblock %}
 
 
 

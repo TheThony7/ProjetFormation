@@ -57,6 +57,13 @@
         <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
             <h4>Je vous présente ici mes projets</h4>
         </div>
+    {% elseif  app.request.attributes.get('_route') == 'app_contact'%}
+        <div class="text-center text-white headerstyle mx-5" style="font-family: monserrat; font-size:10vh">
+            <p>Contact</p>
+        </div>
+        <div class="text-center sousheaderstyle mx-5" style="font-family: 'Pacifico', cursive;">
+            <h4>Envoyez moi un message pour passer commande</h4>
+        </div>
     {% endif %}
     
 </div>
